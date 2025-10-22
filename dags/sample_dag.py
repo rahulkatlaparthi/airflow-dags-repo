@@ -6,7 +6,7 @@ def hello():
     print("Hello from Airflow DAG!")
 
 with DAG(
-    'hello_sample_dag',
+    dag_id='hello_sample_dag',
     start_date=datetime(2025, 10, 20),
     schedule_interval='@daily',
     catchup=False
@@ -15,3 +15,4 @@ with DAG(
         task_id='say_hello',
         python_callable=hello
     )
+
