@@ -6,9 +6,9 @@ def hello():
     print("Hello from Airflow DAG!")
 
 with DAG(
-    'hello_sample_dag_one',
+    dag_id='hello_sample_dag',       # or hello_sample_dag_one for the other file
     start_date=datetime(2025, 10, 20),
-    schedule_interval='@daily',
+    schedule='@daily',               # <-- changed from schedule_interval
     catchup=False
 ) as dag:
     task1 = PythonOperator(
