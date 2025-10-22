@@ -8,11 +8,10 @@ def hello():
 with DAG(
     dag_id='hello_sample_dag',
     start_date=datetime(2025, 10, 20),
-    schedule_interval='@daily',
+    schedule='@daily',   # updated from schedule_interval
     catchup=False
 ) as dag:
     task1 = PythonOperator(
         task_id='say_hello',
         python_callable=hello
     )
-
